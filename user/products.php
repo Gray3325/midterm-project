@@ -169,6 +169,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
       <table class="table table-bordered">
         <thead>
           <tr>
+            <td><input class="form-check-input" type="checkbox">全選</td>
             <th>id</th>
             <th>作品名稱</th>
             <th>分類</th>
@@ -185,6 +186,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
           <tbody>
             <?php foreach ($rows as $row) : ?>
               <tr>
+                <td><input class="form-check-input" type="checkbox"></td>
                 <td><?= $row["id"] ?></td>
                 <td><?= $row["name"] ?></td>
                 <td>
