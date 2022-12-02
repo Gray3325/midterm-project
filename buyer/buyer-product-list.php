@@ -308,17 +308,17 @@ $totalPage = ceil($userCount / $per_page);
                       <a href="buyer-product-list.php?category=<?= $row["category"] ?>">
                         <?php
                         if ($row["category"] == "1") {
-                          echo "ink";
+                          echo "水墨";
                         } elseif ($row["category"] == "2") {
-                          echo "collage";
+                          echo "膠彩";
                         } elseif ($row["category"] == "3") {
-                          echo "canvas";
+                          echo "油畫";
                         } elseif ($row["category"] == "4") {
-                          echo "watercolor";
+                          echo "水彩";
                         } elseif ($row["category"] == "5") {
-                          echo "Sculpture";
+                          echo "版畫";
                         } elseif ($row["category"] == "6") {
-                          echo "digit";
+                          echo "電繪";
                         }
                         ?>
 

@@ -3,7 +3,7 @@ require_once("../db2-connect.php");
 
 if (isset($_GET["search"])) {
   $search = $_GET["search"];
-  $sql = "SELECT * FROM product WHERE `product_status`=1 AND `product`.`name` LIKE '%$search%'  ORDER BY `product`.`id` ASC";
+  $sql = "SELECT * FROM product WHERE `product_valid`=1 AND `product`.`name` LIKE '%$search%'  ORDER BY `product`.`id` ASC";
   $result = $conn->query($sql);
   $userCount = $result->num_rows;
 } else {
@@ -13,7 +13,7 @@ if (isset($_GET["search"])) {
     $page = 1;
   }
 
-  $sqlAll="SELECT * FROM `product` WHERE `product_status`=1 ORDER BY `product`.`id` ASC ";
+  $sqlAll="SELECT * FROM `product` WHERE `product_valid`=1 ORDER BY `product`.`id` ASC ";
   $resultAll = $conn->query($sqlAll);
   $userCount = $resultAll->num_rows;
 
@@ -23,7 +23,7 @@ if (isset($_GET["search"])) {
   $page_start = ($page - 1) * $per_page;
 
 
-  $sql = "SELECT * FROM `product` WHERE `product_status`=1 ORDER BY `product`.`id` DESC
+  $sql = "SELECT * FROM `product` WHERE `product_valid`=1 ORDER BY `product`.`id` DESC
   LIMIT $page_start, $per_page";
 
 
@@ -164,12 +164,11 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
       <div class="py-2">
         共 <?= $userCount ?> 張
       </div>
-      <?php //var_dump($rows) 
-      ?>
+      <button class="btn btn-danger" name="btnDelete">一鍵刪除</button>
       <table class="table table-bordered">
         <thead>
           <tr>
-            <td><input class="form-check-input" type="checkbox">全選</td>
+            <td><input class="form-check-input" type="checkbox" name="AllChoose">全選</td>
             <th>id</th>
             <th>作品名稱</th>
             <th>分類</th>
@@ -186,7 +185,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
           <tbody>
             <?php foreach ($rows as $row) : ?>
               <tr>
-                <td><input class="form-check-input" type="checkbox"></td>
+                <td><input class="form-check-input" type="checkbox" name="OneChoose" value="<?= $row["id"] ?>"></td>
                 <td><?= $row["id"] ?></td>
                 <td><?= $row["name"] ?></td>
                 <td>
