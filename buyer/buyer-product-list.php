@@ -27,8 +27,8 @@ $page_start = ($page - 1) * $per_page;
 // 作者查詢
 // if (isset($_GET["author"])) {
 //   $author = $_GET["author"];
-//   $sql2 = "SELECT * FROM `product` WHERE `product_status`=1 AND `product`.`author` LIKE '%$author%'  ORDER BY `product`.`create_time` DESC LIMIT $page_start, $per_page";
-//   $sqlAll = "SELECT * FROM `product` WHERE `product_status`=1 AND `product`.`author` LIKE '%$author%'  ORDER BY `product`.`create_time` DESC";
+//   $sql2 = "SELECT * FROM `product` WHERE `product_valid`=1 AND `product`.`author` LIKE '%$author%'  ORDER BY `product`.`create_time` DESC LIMIT $page_start, $per_page";
+//   $sqlAll = "SELECT * FROM `product` WHERE `product_valid`=1 AND `product`.`author` LIKE '%$author%'  ORDER BY `product`.`create_time` DESC";
 
 //   $result = $conn->query($sql2);
 //   $resultAll = $conn->query($sqlAll);
@@ -41,8 +41,8 @@ if (isset($_GET["category"])) {
 
 
 
-  $sql2 = "SELECT * FROM `product` WHERE `product_status`=1 AND `category` =  " . $_GET["category"] . " ORDER BY `product`.`create_time` DESC LIMIT $page_start, $per_page";
-  $sqlAll = "SELECT * FROM `product` WHERE `product_status`=1 AND `category` =  " . $_GET["category"] . " ORDER BY `product`.`create_time` DESC";
+  $sql2 = "SELECT * FROM `product` WHERE `product_valid`=1 AND `category` =  " . $_GET["category"] . " ORDER BY `product`.`create_time` DESC LIMIT $page_start, $per_page";
+  $sqlAll = "SELECT * FROM `product` WHERE `product_valid`=1 AND `category` =  " . $_GET["category"] . " ORDER BY `product`.`create_time` DESC";
 
 
   $result = $conn->query($sql2);
@@ -62,15 +62,15 @@ if (isset($_GET["category"])) {
   // 多項篩選
   if (!empty($category_radio)) {
 
-    $sql2 = "SELECT * FROM `product` WHERE `product_status`=1 AND `category` =  " . $_GET["category_radio"] . " AND product.price >= $min AND product.price <=$max ORDER BY product.price DESC
+    $sql2 = "SELECT * FROM `product` WHERE `product_valid`=1 AND `category` =  " . $_GET["category_radio"] . " AND product.price >= $min AND product.price <=$max ORDER BY product.price DESC
     LIMIT $page_start, $per_page";
 
-    $sqlAll = "SELECT * FROM `product` WHERE `product_status`=1 AND `category` =  " . $_GET["category_radio"] . " AND product.price >= $min AND product.price <=$max ORDER BY product.price DESC";
+    $sqlAll = "SELECT * FROM `product` WHERE `product_valid`=1 AND `category` =  " . $_GET["category_radio"] . " AND product.price >= $min AND product.price <=$max ORDER BY product.price DESC";
 
   } else {
-    $sql2 = "SELECT * FROM `product` WHERE `product_status`=1 AND product.price >= $min AND product.price <=$max ORDER BY product.price DESC
+    $sql2 = "SELECT * FROM `product` WHERE `product_valid`=1 AND product.price >= $min AND product.price <=$max ORDER BY product.price DESC
     LIMIT $page_start, $per_page";
-    $sqlAll = "SELECT * FROM `product` WHERE `product_status`=1 AND product.price >= $min AND product.price <=$max";
+    $sqlAll = "SELECT * FROM `product` WHERE `product_valid`=1 AND product.price >= $min AND product.price <=$max";
   }
   // var_dump($sqlAll);
   // exit;
@@ -81,9 +81,9 @@ if (isset($_GET["category"])) {
 
   //全部
 } else {
-  $sql2 = "SELECT * FROM `product` WHERE `product_status`=1 ORDER BY `product`.`create_time` DESC
+  $sql2 = "SELECT * FROM `product` WHERE `product_valid`=1 ORDER BY `product`.`create_time` DESC
   LIMIT $page_start, $per_page";
-  $sqlAll = "SELECT * FROM `product` WHERE `product_status`=1 ORDER BY `product`.`id` ASC ";
+  $sqlAll = "SELECT * FROM `product` WHERE `product_valid`=1 ORDER BY `product`.`id` ASC ";
   $result = $conn->query($sql2);
   $resultAll = $conn->query($sqlAll);
   $userCount = $resultAll->num_rows;
