@@ -260,27 +260,27 @@ $totalPage = ceil($userCount / $per_page);
               </div>
               <div class="row-auto">
                 <input class="form-check-input" type="radio" name="category_radio" id="category-radio1" value="1" <?php if(isset($_GET["category_radio"]) && (($_GET["category_radio"])=="1")) echo "checked"; ?>>
-                <label class="form-check-label" for="category-radio1">ink</label>
+                <label class="form-check-label" for="category-radio1">水墨</label>
 
 
                 <input class="form-check-input" type="radio" name="category_radio" id="category-radio2" value="2" <?php if(isset($_GET["category_radio"]) && (($_GET["category_radio"])=="2")) echo "checked"; ?>>
-                <label class="form-check-label" for="category-radio2">collage</label>
+                <label class="form-check-label" for="category-radio2">膠彩</label>
 
 
                 <input class="form-check-input" type="radio" name="category_radio" id="category-radio3" value="3" <?php if(isset($_GET["category_radio"]) && (($_GET["category_radio"])=="3")) echo "checked"; ?>>
-                <label class="form-check-label" for="category-radio3">canvas</label>
+                <label class="form-check-label" for="category-radio3">油畫</label>
 
 
                 <input class="form-check-input" type="radio" name="category_radio" id="category-radio4" value="4" <?php if(isset($_GET["category_radio"]) && (($_GET["category_radio"])=="4")) echo "checked"; ?>>
-                <label class="form-check-label" for="category-radio4">watercolor</label>
+                <label class="form-check-label" for="category-radio4">水彩</label>
 
 
                 <input class="form-check-input" type="radio" name="category_radio" id="category-radio5" value="5" <?php if(isset($_GET["category_radio"]) && (($_GET["category_radio"])=="5")) echo "checked"; ?>>
-                <label class="form-check-label" for="category-radio5">Sculpture</label>
+                <label class="form-check-label" for="category-radio5">版畫</label>
 
 
                 <input class="form-check-input" type="radio" name="category_radio" id="category-radio6" value="6" <?php if(isset($_GET["category_radio"]) && (($_GET["category_radio"])=="6")) echo "checked"; ?>>
-                <label class="form-check-label" for="category-radio6">digit</label>
+                <label class="form-check-label" for="category-radio6">電繪</label>
               </div>
               <div class="row-auto">
                 <button class="btn btn-dark" type="submit">篩選</button>
